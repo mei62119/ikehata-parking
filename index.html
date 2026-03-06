@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>株式会社 池畑 | 駐車場手配サービス</title>
+<meta name="description" content="イベント・工事・商業施設向けの駐車場手配サービス。月極駐車場のご相談も承ります。" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --blue: #2e5fa7;
+    --blue-dark: #23477d;
+    --text: #25344d;
+    --muted: #6d7a90;
+    --line: rgba(46, 95, 167, 0.12);
+    --shadow: 0 16px 36px rgba(24, 42, 74, 0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text);
+    background: linear-gradient(180deg, #f6f8fc 0%, #eef3fa 100%);
+    line-height: 1.7;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(46,95,167,0.08);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--blue-dark);
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .nav a:hover { color: var(--blue); }
+
+  .page-wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 22px 20px 60px;
+  }
+
+  .panel {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+  }
+
+  .hero {
+    min-height: 420px;
+    background:
+      linear-gradient(rgba(15, 28, 52, 0.45), rgba(15, 28, 52, 0.5)),
+      url('39cdd3fc-b4fe-4e40-bee2-b375ea5b26a2.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+  }
+
+  .hero-inner {
+    max-width: 760px;
+    color: #fff;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 54px);
+    line-height: 1.2;
+    margin-bottom: 14px;
+    font-weight: 800;
+    text-shadow: 0 4px 18px rgba(0,0,0,0.35);
+  }
+
+  .hero p {
+    font-size: clamp(14px, 2vw, 18px);
+    opacity: 0.98;
+    margin-bottom: 24px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: linear-gradient(180deg, #4c79be 0%, #2e5fa7 100%);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 8px 18px rgba(46,95,167,0.28);
+  }
+
+  .section {
+    position: relative;
+    padding: 54px 24px 56px;
+    background:
+      linear-gradient(rgba(248,250,254,0.9), rgba(241,245,252,0.92)),
+      url('39cdd3fc-b4fe-4e40-bee2-b375ea5b26a2.png') center/cover no-repeat;
+  }
+
+  .section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.58);
+  }
+
+  .section > * { position: relative; z-index: 1; }
+
+  .section-title {
+    text-align: center;
+    color: var(--blue-dark);
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 34px;
+  }
+
+  .service-grid,
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.88);
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(29, 47, 86, 0.12);
+    padding: 28px 22px;
+    text-align: center;
+    backdrop-filter: blur(3px);
+  }
+
+  .icon-box {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 16px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #edf3ff 0%, #dae6fb 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+  }
+
+  .card h3 {
+    color: var(--blue-dark);
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    color: #4d5c74;
+    font-size: 14px;
+  }
+
+  .gallery-card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(29, 47, 86, 0.12);
+  }
+
+  .gallery-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .gallery-card .content {
+    padding: 16px 18px 18px;
+    text-align: center;
+  }
+
+  .gallery-card h3 {
+    color: var(--blue-dark);
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .gallery-card p {
+    color: #52627b;
+    font-size: 13px;
+  }
+
+  .center-button {
+    text-align: center;
+    margin-top: 28px;
+  }
+
+  .info-section {
+    background: #fff;
+    padding: 54px 24px;
+  }
+
+  .price-access-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 24px;
+  }
+
+  .info-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 26px 22px;
+    box-shadow: 0 10px 26px rgba(32, 49, 84, 0.06);
+  }
+
+  .info-card h3 {
+    color: var(--blue-dark);
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .price-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .price-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: #f7faff;
+    border: 1px solid rgba(46,95,167,0.08);
+  }
+
+  .price-item strong { color: var(--blue-dark); }
+  .price-note, .access-text { color: var(--muted); font-size: 14px; }
+
+  .access-map {
+    margin-top: 14px;
+    padding: 22px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #eef4fe 0%, #e2ebfb 100%);
+    color: var(--blue-dark);
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .contact-section {
+    background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+    padding: 54px 24px 56px;
+  }
+
+  form {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .field { margin-bottom: 18px; }
+
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin-bottom: 8px;
+  }
+
+  input, textarea {
+    width: 100%;
+    border: 1px solid rgba(46,95,167,0.14);
+    border-radius: 12px;
+    padding: 14px 15px;
+    background: #fff;
+    font: inherit;
+    color: var(--text);
+  }
+
+  textarea { min-height: 150px; resize: vertical; }
+
+  button {
+    display: inline-block;
+    background: linear-gradient(180deg, #4c79be 0%, #2e5fa7 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 38px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(46,95,167,0.25);
+  }
+
+  .footer {
+    text-align: center;
+    color: #6e7b8f;
+    font-size: 13px;
+    padding: 8px 0 18px;
+  }
+
+  @media (max-width: 900px) {
+    .service-grid,
+    .gallery-grid,
+    .price-access-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero { min-height: 360px; }
+  }
+
+  @media (max-width: 640px) {
+    .header-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .nav {
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .page-wrap { padding: 14px 14px 44px; }
+    .panel { border-radius: 18px; }
+    .section, .info-section, .contact-section { padding: 40px 16px 42px; }
+    .section-title { font-size: 24px; margin-bottom: 24px; }
+    .form-grid { grid-template-columns: 1fr; gap: 0; }
+    .hero-inner { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">株式会社 池畑</div>
+      <nav class="nav">
+        <a href="#top">TOP</a>
+        <a href="#service">事業内容</a>
+        <a href="#gallery">実績</a>
+        <a href="#price">料金</a>
+        <a href="#access">アクセス</a>
+        <a href="#reserve">予約</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <section class="panel hero" id="top">
+      <div class="hero-inner">
+        <h1>駐車場手配サービス</h1>
+        <p>イベント工事・商業施設等の各種駐車場を私達にお任せください</p>
+        <a class="btn" href="#reserve">お問い合わせ</a>
+      </div>
+    </section>
+
+    <section class="panel section" id="service">
+      <h2 class="section-title">事業内容</h2>
+      <div class="service-grid">
+        <article class="card">
+          <div class="icon-box">🏪</div>
+          <h3>イベント駐車場</h3>
+          <p>イベント開催時の来場者用・関係者用駐車場を柔軟にご用意いたします。</p>
+        </article>
+        <article class="card">
+          <div class="icon-box">🏗️</div>
+          <h3>工事車両専用</h3>
+          <p>建設・土木・設備等の現場向けに、近隣で使いやすい区画を手配します。</p>
+        </article>
+        <article class="card">
+          <div class="icon-box">🏢</div>
+          <h3>商業施設駐車場</h3>
+          <p>商業施設、搬入などの現場向けに、臨時駐車場の確保を支援します。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel section" id="gallery">
+      <h2 class="section-title">実績</h2>
+      <div class="gallery-grid">
+        <article class="gallery-card">
+          <img src="39cdd3fc-b4fe-4e40-bee2-b375ea5b26a2.png" alt="イベント駐車場の実績" />
+          <div class="content">
+            <h3>イベント駐車場</h3>
+            <p>イベント開催地付近の駐車場を確保し運用をサポートしました。</p>
+          </div>
+        </article>
+        <article class="gallery-card">
+          <img src="39cdd3fc-b4fe-4e40-bee2-b375ea5b26a2.png" alt="工事駐車場の実績" />
+          <div class="content">
+            <h3>工事駐車場</h3>
+            <p>雨天・工期変更のある現場にも合わせて柔軟に対応しました。</p>
+          </div>
+        </article>
+        <article class="gallery-card">
+          <img src="39cdd3fc-b4fe-4e40-bee2-b375ea5b26a2.png" alt="商業施設駐車場の実績" />
+          <div class="content">
+            <h3>商業施設駐車場</h3>
+            <p>施設来客・搬入・従業員車両まで幅広くご相談いただけます。</p>
+          </div>
+        </article>
+      </div>
+      <div class="center-button">
+        <a class="btn" href="#reserve">更に知りたい方はこちら</a>
+      </div>
+    </section>
+
+    <section class="panel info-section" id="price">
+      <div class="price-access-grid">
+        <div class="info-card">
+          <h3>料金</h3>
+          <div class="price-list">
+            <div class="price-item"><span>短期手配プラン</span><strong>要お見積り</strong></div>
+            <div class="price-item"><span>月極・中長期プラン</span><strong>要お見積り</strong></div>
+            <div class="price-item"><span>法人一括相談</span><strong>個別対応</strong></div>
+          </div>
+          <p class="price-note" style="margin-top:14px;">エリア、台数、期間、利用時間帯により料金が変動します。まずはお気軽にご相談ください。</p>
+        </div>
+        <div class="info-card" id="access">
+          <h3>アクセス</h3>
+          <p class="access-text">〒530-0000 大阪府大阪市北区梅田○-○-○<br>JR大阪駅・各線梅田駅からアクセスしやすい立地です。</p>
+          <div class="access-map">MAP / アクセス情報掲載エリア</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel contact-section" id="reserve">
+      <h2 class="section-title">お問い合わせ</h2>
+      <form>
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">お名前</label>
+            <input id="name" type="text" placeholder="お名前" />
+          </div>
+          <div class="field">
+            <label for="kana">フリガナ</label>
+            <input id="kana" type="text" placeholder="フリガナ" />
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="email">メールアドレス</label>
+            <input id="email" type="email" placeholder="メールアドレス" />
+          </div>
+          <div class="field">
+            <label for="tel">電話番号</label>
+            <input id="tel" type="text" placeholder="電話番号" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">お問い合わせ内容</label>
+          <textarea id="message" placeholder="ご希望のエリア・台数・利用期間などをご記入ください"></textarea>
+        </div>
+
+        <div style="text-align:center; margin-top:10px;">
+          <button type="submit">送信</button>
+        </div>
+      </form>
+    </section>
+
+    <div class="footer">© 2026 株式会社 池畑</div>
+  </main>
+</body>
+</html>
