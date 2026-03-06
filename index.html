@@ -29,11 +29,12 @@
       padding: 20px;
     }
     .hero {
+      image-rendering: auto;
       position: relative;
       min-height: 460px;
       border-radius: 28px;
       overflow: hidden;
-      background-image: linear-gradient(rgba(10,20,40,.18), rgba(10,20,40,.22)), url("./hero.png");
+      background-image: url("./hero.png");
       background-size: cover;
       background-position: center;
       box-shadow: 0 20px 48px rgba(23, 41, 77, 0.18);
@@ -321,7 +322,10 @@
       </div>
     </section>
 
-    <section class="section" id="contact">
+    
+
+  </div>
+  <section class="section" id="contact">
       <h2 class="section-title">お問い合わせ</h2>
       <div class="service-card">
         <form class="contact-form">
@@ -333,12 +337,10 @@
             <textarea name="message" placeholder="お問い合わせ内容" required></textarea>
           </div>
           <button type="submit" class="btn">送信</button>
-          <p class="form-note">送信ボタンを押すと、ご利用中のメールソフトが起動し、お問い合わせ内容が自動入力された状態で送信できます。</p>
         </form>
       </div>
     </section>
 
-  </div>
   <footer class="site-footer">
     <div class="footer-card">
       <div class="footer-grid">
