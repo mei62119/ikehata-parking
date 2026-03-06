@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>株式会社 池畑 | 駐車場手配サービス</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      background: #eef3f9;
+      color: #243650;
+    }
+    .site-header{position:sticky;top:0;background:#ffffffcc;backdrop-filter:blur(10px);z-index:30;border-bottom:1px solid #e5eaf3}
+.nav{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo-mark{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px rgba(63,103,170,.22);overflow:hidden}
+.logo{font-weight:700;line-height:1.2;color:#243650}
+.logo small{display:block;font-size:11px;color:#6980a8;font-weight:600;letter-spacing:.08em}
+.nav-links{display:flex;align-items:center;gap:18px;font-weight:600}
+.nav-links a{text-decoration:none;color:#2c3e60;font-size:14px}
+.nav-links a:hover{color:#3f67aa}
+.menu-toggle{display:none;width:44px;height:44px;border:none;border-radius:12px;background:#edf3ff;color:#34558f;font-size:22px;font-weight:700;cursor:pointer}
+.menu-toggle:hover{background:#dfe9fb}
+.wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .hero {
+      position: relative;
+      min-height: 460px;
+      border-radius: 28px;
+      overflow: hidden;
+      background-image: linear-gradient(rgba(10,20,40,.18), rgba(10,20,40,.22)), url("./hero.png");
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 20px 48px rgba(23, 41, 77, 0.18);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.06) 100%);
+      pointer-events: none;
+    }
+    .hero-content {
+      color: #fff;
+      padding: 32px;
+    }
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 700;
+    }
+    .hero p {
+      margin: 0 0 18px;
+      font-size: clamp(14px, 2vw, 18px);
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 8px;
+      background: #3f67aa;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #34558f;
+    }
+    .contact-form {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .contact-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #ccd6ea;
+      border-radius: 12px;
+      font: inherit;
+      background: #fff;
+    }
+    .contact-form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    .form-note {
+      margin-top: 14px;
+      font-size: 13px;
+      color: #6980a8;
+      line-height: 1.7;
+    }
+    .site-footer {
+      margin: 28px auto 0;
+      max-width: 1080px;
+      padding: 0 20px 28px;
+    }
+    .footer-card {
+      background: linear-gradient(180deg, #2d4774 0%, #243650 100%);
+      color: #fff;
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: 0 18px 42px rgba(23, 41, 77, 0.16);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .footer-title {
+      margin: 0 0 12px;
+      font-size: 26px;
+      font-weight: 700;
+    }
+    .footer-text,
+    .footer-links a,
+    .footer-copy {
+      color: rgba(255,255,255,.82);
+      font-size: 14px;
+      line-height: 1.9;
+      text-decoration: none;
+    }
+    .footer-links {
+      display: grid;
+      gap: 8px;
+      justify-content: start;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
+    .footer-copy {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.16);
+      font-size: 12px;
+    }
+      .section {
+      margin-top: 28px;
+      background: rgba(255,255,255,0.86);
+      border: 1px solid rgba(202,214,234,.55);
+      border-radius: 28px;
+      padding: 54px 32px;
+      box-shadow: 0 18px 42px rgba(23, 41, 77, 0.10);
+    }
+    .section-title {
+      margin: 0 0 34px;
+      text-align: center;
+      color: #4868a5;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(220,230,246,.9);
+      border-radius: 22px;
+      padding: 30px 22px;
+      text-align: center;
+      box-shadow: 0 14px 30px rgba(23, 41, 77, 0.08);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 34px rgba(23, 41, 77, 0.12);
+    }
+    .service-icon {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 18px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #edf3ff 0%, #dce8fb 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.9);
+    }
+    .service-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: #34558f;
+    }
+    .service-card p {
+      margin: 0;
+      line-height: 1.8;
+      font-size: 14px;
+      color: #51627d;
+    }
+    @media (max-width: 860px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .site-footer { padding: 0 16px 24px; }
+      .menu-toggle { display: flex; align-items: center; justify-content: center; }
+      .nav { padding: 12px 16px; position: relative; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 16px;
+        left: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        background: #ffffff;
+        border: 1px solid #e5eaf3;
+        border-radius: 18px;
+        padding: 10px 0;
+        box-shadow: 0 18px 36px rgba(23,41,77,.12);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { width: 100%; padding: 12px 16px; }
+      .nav-links a + a { border-top: 1px solid #eef2f8; }
+      .service-grid { grid-template-columns: 1fr; }
+      .contact-row { grid-template-columns: 1fr; }
+      .section { padding: 42px 18px; }
+      .section-title { font-size: 28px; }
+      .hero { min-height: 280px; border-radius: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="28" height="28">
+            <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#g)"/>
+            <path d="M20 40c6-10 18-10 24 0" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="32" cy="26" r="4" fill="white"/>
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#6d93d0"/>
+                <stop offset="100%" stop-color="#3f67aa"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="logo">株式会社 池畑<small>PARKING SERVICE</small></div>
+      </div>
+      <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">☰</button>
+      <nav class="nav-links" id="site-menu">
+        <a href="#top">TOP</a>
+        <a href="#service">事業内容</a>
+        <a href="#price">料金</a>
+        <a href="#access">アクセス</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+  <div class="wrap">
+    <section class="hero" id="top"></section>
+
+    <section class="section" id="service">
+      <h2 class="section-title">事業内容</h2>
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-icon">🏪</div>
+          <h3>イベント駐車場</h3>
+          <p>イベント開催時の来場者用・関係者用の駐車場確保を、柔軟にサポートいたします。</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">🏗️</div>
+          <h3>工事車両駐車場</h3>
+          <p>建設・設備・土木などの現場向けに、近隣で使いやすい駐車区画をご提案します。</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">🏢</div>
+          <h3>商業施設駐車場</h3>
+          <p>施設利用者・搬入車両・関係車両など、用途に合わせた駐車場手配に対応します。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="price">
+      <h2 class="section-title">料金</h2>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon">📅</div>
+          <h3>短期利用</h3>
+          <p>イベント・短期工事など、短期間のご利用に合わせて柔軟にお見積りいたします。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🅿️</div>
+          <h3>中長期利用</h3>
+          <p>月単位のご利用や継続案件にも対応し、使いやすい条件でご提案します。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏢</div>
+          <h3>法人契約</h3>
+          <p>複数台・複数拠点など、法人様向けの一括相談も承っております。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="access">
+      <h2 class="section-title">アクセス</h2>
+      <div class="service-card">
+        <h3>株式会社 池畑</h3>
+        <p>
+          大阪府大阪市（※住所をここに記載）<br>
+          JR大阪駅 / 各線梅田駅からアクセスしやすい立地です。
+        </p>
+        <div style="margin-top:18px;padding:24px;border-radius:18px;background:linear-gradient(180deg,#edf3ff 0%,#dce8fb 100%);color:#4868a5;font-weight:700;">
+          MAP掲載エリア
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2 class="section-title">お問い合わせ</h2>
+      <div class="service-card">
+        <form class="contact-form">
+          <div class="contact-row" style="margin-bottom:12px;">
+            <input type="text" name="name" placeholder="お名前" required>
+            <input type="email" name="email" placeholder="メールアドレス" required>
+          </div>
+          <div style="margin-bottom:12px">
+            <textarea name="message" placeholder="お問い合わせ内容" required></textarea>
+          </div>
+          <button type="submit" class="btn">送信</button>
+          <p class="form-note">送信ボタンを押すと、ご利用中のメールソフトが起動し、お問い合わせ内容が自動入力された状態で送信できます。</p>
+        </form>
+      </div>
+    </section>
+
+  </div>
+  <footer class="site-footer">
+    <div class="footer-card">
+      <div class="footer-grid">
+        <div>
+          <h2 class="footer-title">株式会社 池畑</h2>
+          <div class="footer-text">
+            駐車場手配サービス / PARKING SERVICE<br>
+            大阪府大阪市（※住所をここに記載）<br>
+            TEL：00-0000-0000<br>
+            MAIL：info@example.com
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="#top">TOP</a>
+          <a href="#service">事業内容</a>
+          <a href="#price">料金</a>
+          <a href="#access">アクセス</a>
+          <a href="#contact">お問い合わせ</a>
+        </div>
+      </div>
+      <div class="footer-copy">© 2026 株式会社 池畑 All Rights Reserved.</div>
+    </div>
+  </footer>
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.nav-links');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.textContent = isOpen ? '✕' : '☰';
+      });
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.textContent = '☰';
+        });
+      });
+    }
+
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = contactForm.querySelector('[name="name"]').value.trim();
+        const email = contactForm.querySelector('[name="email"]').value.trim();
+        const message = contactForm.querySelector('[name="message"]').value.trim();
+        const subject = encodeURIComponent('ホームページからのお問い合わせ');
+        const body = encodeURIComponent(
+          `お名前：${name}
+メールアドレス：${email}
+
+お問い合わせ内容：
+${message}`
+        );
+        window.location.href = `mailto:info@example.com?subject=${subject}&body=${body}`;
+      });
+    }
+  </script>
+</body>
+</html>
